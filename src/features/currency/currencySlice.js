@@ -9,8 +9,8 @@ const toArray = (array) =>
 const initialState = {
   status: "idle",
   currencyArray: [],
-  currencyFrom: null,
-  currencyTo: null,
+  currencyFrom: "USD",
+  currencyTo: "EUR",
   fromAmount: 1,
   toAmount: "",
   selectedExchangeRate:""
@@ -42,6 +42,7 @@ export const currencySlice = createSlice({
     },
     setCurrencyFrom: (state, action) => {
       state.currencyFrom = action.payload;
+      
     },
     setCurrencyTo: (state, action) => {
       state.currencyTo = action.payload;

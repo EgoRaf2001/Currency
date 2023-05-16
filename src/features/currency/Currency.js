@@ -21,7 +21,11 @@ export function Currency() {
   const selectedCurrencyTo = useSelector(currencyTo);
   const selectedToAmount = useSelector(toAmount);
   const selectedFromAmount = useSelector(fromAmount);
+  const filteredCurrencyTo=currencies.filter((item)=>item.key!==selectedCurrencyFrom)
 
+
+    const usd=currencies.find(country=>country.key==="USD")
+  
   useEffect(() => {
     dispatch(getCurrencies());
   }, []);
@@ -62,10 +66,11 @@ export function Currency() {
         <select
           onChange={handleFrom}
           className=" mr-2   rounded-md border-0 bg-transparent py-0 pl-1 pr-5 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+          value={selectedCurrencyFrom}
         >
           {currencies.map((item) => {
             return (
-              <option key={item.key} value={currencies.key}>
+              <option   key={item.key} value={item.key}>
                 {item.key}
               </option>
             );
@@ -75,8 +80,10 @@ export function Currency() {
         <select
           onChange={handleTo}
           className=" ml-48  rounded-md border-0 bg-transparent py-0 pl-1 pr-5 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+          value={selectedCurrencyTo}
+          
         >
-          {currencies.map((item) => {
+          {filteredCurrencyTo.map((item) => {
             return (
               <option key={item.key} value={currencies.key}>
                 {item.key}
