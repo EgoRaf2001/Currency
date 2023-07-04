@@ -24,7 +24,6 @@ export function Currency() {
   const filteredCurrencyTo=currencies.filter((item)=>item.key!==selectedCurrencyFrom)
 
 
-    const usd=currencies.find(country=>country.key==="USD")
   
   useEffect(() => {
     dispatch(getCurrencies());

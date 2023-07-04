@@ -20,6 +20,7 @@ export const getCurrencies = createAsyncThunk(
   async () => {
     const response = await fetchCurrencies();
     return response.data;
+    
   }
 );
 
